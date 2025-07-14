@@ -1,9 +1,294 @@
-body{
-    background-color: black;
-    color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+body {
+    background-color: #1a1a1a; /* Dark background, slightly lighter than pure black */
+    color: #e0e0e0; /* Light grey text */
+    font-family: 'Inter', sans-serif; /* A modern, clean font, you might need to import this from Google Fonts */
+    margin: 0;
+    display: flex; /* Use flexbox to center the container */
+    justify-content: center; /* Center horizontally */
+    align-items: flex-start; /* Align to the top vertically */
+    min-height: 100vh; /* Ensure body takes full viewport height */
+    padding: 30px 0; /* Add vertical padding around the container */
 }
 
-.main, .about_me, .contact{
-    box-shadow: pink;
+.container {
+    max-width: 1100px; /* Max width of your content */
+    width: 95%; /* Take 95% of the body width */
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Two columns: left (main content) and right (about me/download) */
+    gap: 40px; /* Space between the main columns */
+    padding: 30px; /* Internal padding for the container */
+}
+
+/* Base styling for sections/cards */
+.section-card {
+    background-color: #2a2a2a; /* Slightly lighter background for cards */
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid #3a3a3a; /* Subtle border for definition */
+}
+
+h3 {
+    color: #f0f0f0; /* Slightly brighter heading color */
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+/* Paragraph Spacing */
+p {
+    margin: 0; /* Remove default top/bottom margin */
+    margin-bottom: 8px; /* Add a small, consistent bottom margin */
+    line-height: 1.6; /* Keep line height for readability */
+}
+
+
+/* Welcome Section */
+.welcome-section {
+    grid-column: 1 / 2; /* Place in the first column */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.welcome-content {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.welcome-text {
+    flex: 1;
+}
+
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #4a4a4a; /* Placeholder for avatar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    color: #e0e0e0;
+    overflow: hidden; /* Ensure image fits if you put one */
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-link-button {
+    background-color: #4a4a4a;
+    color: #e0e0e0;
+    border: none;
+    border-radius: 8px;
+    padding: 15px 20px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.social-link-button:hover {
+    background-color: #5a5a5a;
+}
+
+.book-call-button { /* This button is in your HTML */
+    background-color: #ff4d4d; /* Red accent color */
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.book-call-button:hover {
+    background-color: #e60000;
+}
+
+
+/* About Me Section */
+.aboutme {
+    grid-column: 2 / 3; /* Place in the second column */
+    align-self: start; /* Align to the top of its grid cell */
+}
+
+.aboutme ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.aboutme ul li {
+    background-color: #3a3a3a;
+    padding: 8px 15px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    display: inline-block; /* For skills to appear as tags */
+    margin-right: 8px;
+    font-size: 0.95em;
+}
+
+.download-app-card { /* This div is present in your HTML, even if empty */
+    background-color: #2a2a2a;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #3a3a3a;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Removed .download-app-card img and .download-button as they are not inside the empty div */
+
+
+/* Main Content Grid (Left Side) */
+.main-content-grid {
+    grid-column: 1 / 2;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns for the cards */
+    gap: 20px;
+}
+
+/* Placeholder card for the empty space */
+.placeholder-card {
+    grid-column: 2 / 3; /* Position it where the "8:50 AM AST" card was */
+    /* Inherits .section-card styles */
+    display: flex; /* Make content align nicely */
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    text-align: center;
+}
+
+.contact, .design-works, .playground { /* Updated selectors to only include what's in HTML */
+    /* Apply common card styling */
+    background-color: #2a2a2a;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid #3a3a3a;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contact {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3; /* Spans two rows (contact and placeholder card) */
+}
+
+.action-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    color: #e0e0e0;
+    font-weight: bold;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+}
+
+.action-card:hover {
+    background-color: #3a3a3a; /* Darken on hover */
+}
+
+.action-card .arrow {
+    font-size: 1.5em;
+    font-weight: lighter;
+}
+
+.design-works, .playground { /* Only these two are present as action cards in your current HTML */
+    grid-column: 2 / 3; /* Stack these in the second column of the main content grid */
+}
+
+/* Removed styles for .blog and .countries-visited as they are not in your HTML */
+/* Removed styles for .working-time */
+
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+    .container {
+        grid-template-columns: 1fr; /* Stack columns on smaller screens */
+        gap: 30px;
+        padding: 20px; /* Adjust container padding */
+        width: 90%; /* Allow container to take more width on smaller screens */
+    }
+
+    body {
+        padding: 20px 0; /* Keep vertical padding around the container */
+    }
+
+    .welcome-section, .aboutme, .main-content-grid, .download-app-card { /* .download-app-card is still there, even if empty */
+        grid-column: 1 / -1; /* Make all sections span full width within the container */
+    }
+
+    .main-content-grid {
+        grid-template-columns: 1fr; /* Stack cards on smaller screens */
+    }
+
+    .contact {
+        grid-row: auto; /* Reset row span */
+    }
+
+    .welcome-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+        width: 95%;
+    }
+    h3 {
+        font-size: 1.3em;
+    }
+
+    .section-card {
+        padding: 20px;
+    }
+
+    .book-call-button, .social-link-button {
+        padding: 12px 18px;
+        font-size: 1em;
+    }
+    /* Removed .download-button as it's not present inside the empty .download-app-card */
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+        width: 98%;
+    }
+    body {
+        padding: 10px 0;
+    }
+
+    .section-card {
+        padding: 15px;
+    }
+
+    .social-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
