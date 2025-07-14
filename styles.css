@@ -15,17 +15,15 @@ body {
     width: 95%; /* Take 95% of the body width */
     display: grid;
     grid-template-columns: 2fr 1fr; /* Two columns: left (main content) and right (about me/download) */
-    gap: 40px; /* Space between the main columns */
-    padding: 30px; /* Internal padding for the container */
+    gap: 20px; /* Space between the main columns */
 }
 
 /* Base styling for sections/cards */
 .section-card {
-    background-color: #2a2a2a; /* Slightly lighter background for cards */
     border-radius: 12px;
     padding: 30px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    border: 1px solid #3a3a3a; /* Subtle border for definition */
+    border: 1px solid #40ff00; /* Subtle border for definition */
 }
 
 h3 {
@@ -34,6 +32,12 @@ h3 {
     margin-bottom: 20px;
     font-size: 1.5em;
     font-weight: 600;
+}
+
+a {
+    line-height: 1.6; /* Keep line height for readability */
+    text-decoration: none;
+    color: inherit;
 }
 
 /* Paragraph Spacing */
@@ -106,21 +110,6 @@ p {
     background-color: #5a5a5a;
 }
 
-.book-call-button { /* This button is in your HTML */
-    background-color: #ff4d4d; /* Red accent color */
-    color: white;
-    padding: 15px 25px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-.book-call-button:hover {
-    background-color: #e60000;
-}
-
-
 /* About Me Section */
 .aboutme {
     grid-column: 2 / 3; /* Place in the second column */
@@ -144,16 +133,12 @@ p {
 }
 
 .download-app-card { /* This div is present in your HTML, even if empty */
-    background-color: #2a2a2a;
     border-radius: 12px;
     padding: 20px;
     text-align: center;
-    border: 1px solid #3a3a3a;
+    border: 1px solid #40ff00;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
-
-/* Removed .download-app-card img and .download-button as they are not inside the empty div */
-
 
 /* Main Content Grid (Left Side) */
 .main-content-grid {
@@ -176,11 +161,9 @@ p {
 
 .contact, .design-works, .playground { /* Updated selectors to only include what's in HTML */
     /* Apply common card styling */
-    background-color: #2a2a2a;
     border-radius: 12px;
-    padding: 30px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    border: 1px solid #3a3a3a;
+    border: 1px solid #40ff00;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -197,8 +180,6 @@ p {
     align-items: center;
     text-decoration: none;
     color: #e0e0e0;
-    font-weight: bold;
-    font-size: 1.2em;
     transition: background-color 0.3s ease;
 }
 
@@ -210,13 +191,6 @@ p {
     font-size: 1.5em;
     font-weight: lighter;
 }
-
-.design-works, .playground { /* Only these two are present as action cards in your current HTML */
-    grid-column: 2 / 3; /* Stack these in the second column of the main content grid */
-}
-
-/* Removed styles for .blog and .countries-visited as they are not in your HTML */
-/* Removed styles for .working-time */
 
 
 /* Responsiveness */
