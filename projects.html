@@ -7,6 +7,122 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div id="cursor-effect-container"></div>
     <h1>My projects</h1>
+    <div class="projects-container"> <div class="project-card">
+            <div class="card-inner">
+                <div class="card-content">
+                    <h3>Project register</h3>
+                    <p>An MVC project designed with the CRUD metodology, has both admin and user login, where the admin can upload projects and the user can access them</p>
+                    <img src="https://via.placeholder.com/260x150/4a4a4a/e0e0e0?text=Project+1" alt="Captura del proyecto 1">
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="card-inner">
+                <div class="card-content">
+                    <h3>Proyecto 2</h3>
+                    <p>Breve descripción del proyecto 2.</p>
+                    <img src="https://via.placeholder.com/260x150/4a4a4a/e0e0e0?text=Project+2" alt="Captura del proyecto 2">
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="card-inner">
+                <div class="card-content">
+                    <h3>Proyecto 3</h3>
+                    <p>Breve descripción del proyecto 3.</p>
+                    <img src="https://via.placeholder.com/260x150/4a4a4a/e0e0e0?text=Project+3" alt="Captura del proyecto 3">
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="card-inner">
+                <div class="card-content">
+                    <h3>Proyecto 4</h3>
+                    <p>Breve descripción del proyecto 4.</p>
+                    <img src="https://via.placeholder.com/260x150/4a4a4a/e0e0e0?text=Project+4" alt="Captura del proyecto 4">
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="card-inner">
+                <div class="card-content">
+                    <h3>Proyecto 4</h3>
+                    <p>Breve descripción del proyecto 4.</p>
+                    <img src="https://via.placeholder.com/260x150/4a4a4a/e0e0e0?text=Project+4" alt="Captura del proyecto 4">
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="card-inner">
+                <div class="card-content">
+                    <h3>Proyecto 4</h3>
+                    <p>Breve descripción del proyecto 4.</p>
+                    <img src="https://via.placeholder.com/260x150/4a4a4a/e0e0e0?text=Project+4" alt="Captura del proyecto 4">
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const projectCards = document.querySelectorAll('.project-card'); // Selects each individual project card
+
+        projectCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const cardRect = card.getBoundingClientRect();
+                const cardCenterX = cardRect.left + cardRect.width / 2;
+                const cardCenterY = cardRect.top + cardRect.height / 2;
+
+                const mouseX = e.clientX - cardCenterX;
+                const mouseY = e.clientY - cardCenterY;
+
+                const rotateX = (mouseY / (cardRect.height / 2)) * 10;
+                const rotateY = (mouseX / (cardRect.width / 2)) * -10;
+
+                // Selects the specific .card-inner within the current 'card'
+                card.querySelector('.card-inner').style.transform =
+                    `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                // Selects the specific .card-inner within the current 'card'
+                card.querySelector('.card-inner').style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0px)';
+            });
+        });
+    });
+
+    document.addEventListener('mousemove', function(e) {
+    const container = document.getElementById('cursor-effect-container');
+    const dot = document.createElement('div');
+    dot.className = 'trail-dot';
+    dot.style.left = e.clientX + 'px';
+    dot.style.top = e.clientY + 'px';
+    dot.style.width = '10px'; /* Tamaño inicial del punto */
+    dot.style.height = '10px'; /* Tamaño inicial del punto */
+
+    container.appendChild(dot);
+
+    // Forzar un reflow para que la transición funcione desde 0
+    dot.offsetWidth;
+
+    // Animar el punto para que aparezca y luego desaparezca
+    dot.style.opacity = 1;
+    dot.style.transform = 'scale(1)';
+
+    // Eliminar el punto después de la animación
+    setTimeout(() => {
+        dot.style.opacity = 0;
+        dot.style.transform = 'scale(0)';
+        dot.addEventListener('transitionend', () => dot.remove());
+    }, 300); // Duración antes de que empiece a desaparecer
+});
+</script>
